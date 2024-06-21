@@ -1,10 +1,22 @@
 <?php
-// Database connection details
-$serverName = "serverhello2.database.windows.net"; // replace with your server name
+// Error reporting (optional: enable for debugging)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Fetch connection details from environment variables
+$serverName = getenv('serverhello2.database.windows.net');
+$database = getenv('dbname2');
+$username = getenv('serverhello2');
+$password = getenv('Explore@450450');
+
+// Connection options
 $connectionOptions = array(
-    "Database" => "dbname2", // replace with your database name
-    "Uid" => "serverhello2", // replace with your username
-    "PWD" => "Explore@450450" // replace with your password
+    "Database" => $database,
+    "Uid" => $username,
+    "PWD" => $password,
+    "Encrypt" => true,
+    "TrustServerCertificate" => false
 );
 
 // Establish the connection
